@@ -1,6 +1,10 @@
 @import "generic/reset";
 @import "settings/all";
 
+html {
+	font-size: 62.5%;
+}
+
 body {
 	margin-right: auto;
 	margin-left: auto;
@@ -11,4 +15,10 @@ body {
 	font-family: $main-font;
 	background-color: $background-color;
 	color: $font-color;
+	font-size: 1.6rem;
+}
+
+.logo {
+	font-family: $logo-font;
+	font-size: 2rem;
 }

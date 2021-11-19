@@ -1,5 +1,5 @@
 import './scss/main.scss';
-import React, {useState} from 'react';
+import React from 'react';
 import Menu from './components/Menu.js';
 import SearchResults from './components/SearchResults.js';
 

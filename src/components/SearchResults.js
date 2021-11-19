@@ -37,7 +37,6 @@ export default function SearchResults() {
     return (
         <div>
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-            SearchResults
             <ul>
               {pageList.length ? (pageList.map((el) => <li key={el.imdbID}>{el.Title}</li>)) : (<p>loading...</p>)}
             </ul>
