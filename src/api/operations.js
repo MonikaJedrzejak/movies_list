@@ -1,7 +1,7 @@
 const API_KEY = "53eedff4";
 // const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=`;
 
-export function getMovies(search, cb) {
+export function getMovies(search, cb, cb2) {
     const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`;
     fetch(`${API_URL}`)
     .then((res) => {
@@ -11,8 +11,8 @@ export function getMovies(search, cb) {
       throw new Error("Ups...");
     })
     .then(( {Search, totalResults}) => {
-      console.log(totalResults);
       cb(Search);
+      cb2(totalResults);
     })
     .catch((err) => console.log(err));
 }

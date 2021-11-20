@@ -16,7 +16,7 @@ export default function SearchBar({ searchQuery, setSearchQuery }) {
         }
     }
 	return (
-		<form>
+		<form className="form-searchbar">
 			<input
 				value={formData}
                 onChange={handleChange}

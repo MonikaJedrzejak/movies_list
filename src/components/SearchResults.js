@@ -4,10 +4,11 @@ import {getMovies} from '../api/operations';
 
 export default function SearchResults() {
     const [movie, setMovie] = useState({});
+    const [totalResults, setTotalResults] = useState(1);
     const [searchQuery, setSearchQuery] = useState('pooh');
 
     useEffect(() => {
-      getMovies(searchQuery, setMovie);
+      getMovies(searchQuery, setMovie, setTotalResults);
       console.log(movie);
   }, [searchQuery]);
 
@@ -32,15 +33,38 @@ export default function SearchResults() {
     // }, [searchQuery]);
 
     let pageList = [];
+    let pagesNum = [];
     pageList = movie;
+    pagesNum = totalResults
     console.log(pageList);
+    console.log(pagesNum);
+
+    const pages = Math.ceil(pagesNum/10);
+	
+	const createPages = () => {
+		let table = [];
+		for (let i = 1; i <= pages; i++) {
+			
+		  table.push(<div>
+			{
+			  <button className="btn-page" onClick={()=> console.log(i)}>{i}</button>
+			}
+		  </div>)
+		 }
+		return table
+	  }
+
+
+
     return (
-        <div>
+        <div className="container">
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
             <ul>
               {pageList.length ? (pageList.map((el) => <li key={el.imdbID}>{el.Title}</li>)) : (<p>loading...</p>)}
             </ul>
-        </div>
+            <div className="results-pagination">{createPages()}</div>
+			</div>
+        
     )
 }
 //TO DO ogarnij blad -  brak wynikow
