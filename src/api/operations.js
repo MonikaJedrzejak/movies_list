@@ -11,8 +11,13 @@ export function getMovies(search, cb, cb2) {
       throw new Error("Ups...");
     })
     .then(( {Search, totalResults}) => {
-      cb(Search);
-      cb2(totalResults);
+      if(!Search) {
+        cb([]);
+        cb2(0);
+      } else {
+        cb(Search);
+        cb2(totalResults);
+      }
     })
     .catch((err) => console.log(err));
 }
@@ -27,7 +32,11 @@ export function getMoviesFromPage(search, page, cb) {
     throw new Error("Ups...");
   })
   .then(( {Search}) => {
-    cb(Search);
+    if(!Search) {
+        cb([]);
+      } else {
+        cb(Search);
+      }
   })
   .catch((err) => console.log(err));
 }
