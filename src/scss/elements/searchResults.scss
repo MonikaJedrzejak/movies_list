@@ -1,4 +1,28 @@
 .results-pagination {
-    display: flex;
-    flex-direction: row;
+    padding: 2rem 0;
 }
+.pagination {
+    justify-content: center;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    background-color: $background-color;
+  }
+
+  .page-item {
+    border: 1px solid $font-color;
+	background-color: $background-color;
+	color: $font-color;
+    padding: 1rem;
+    a.page-link {
+        text-decoration: none;
+        color: $font-color;
+    }
+  }
+
+  .page-item.active {
+        background-color: $accent-color;
+    .page-link {
+            color: $main-color;
+    }
+  }
