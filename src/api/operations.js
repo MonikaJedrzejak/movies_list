@@ -40,3 +40,18 @@ export function getMoviesFromPage(search, page, cb) {
   })
   .catch((err) => console.log(err));
 }
+
+export function getMovieInfo(movieID, cb) {
+    const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${movieID}`;
+    fetch(`${API_URL}`)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw new Error("Ups...");
+    })
+    .then(( Search ) => {
+        cb(Search)
+    })
+    .catch((err) => console.log(err));
+}

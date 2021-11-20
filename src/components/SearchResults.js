@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar.js";
+import MovieCard from "./MovieCard.js";
 import { getMovies, getMoviesFromPage } from "../api/operations";
 import Pagination from "react-responsive-pagination";
 
@@ -39,7 +40,7 @@ export default function SearchResults() {
 			<SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 			<ul>
 				{pageList.length ? (
-					pageList.map((el) => <li key={el.imdbID}>{el.Title}</li>)
+					pageList.map((el) => <li key={el.imdbID}><MovieCard movie={el}/></li>)
 				) : (
 					<p>No results </p>
 				)}
@@ -56,4 +57,3 @@ export default function SearchResults() {
 		</div>
 	);
 }
-//TO DO ogarnij blad -  brak wynikow
