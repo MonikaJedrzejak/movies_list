@@ -1,11 +1,17 @@
 import React from 'react';
+import LoadCookieList from './LoadCookieList.js';
 import Menu from "./Menu.js";
 
-export default function MyWishList() {
+
+
+
+export default function MyWishList({wishlist, setWishlist}) {
+    
+
     return (
         <div>
             <Menu />
-            <p>dd</p>
+            <LoadCookieList wishlist={wishlist} setWishlist={setWishlist}/>
         </div>
     )
 }
