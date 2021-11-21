@@ -9,8 +9,8 @@ function App() {
   const [cookies, setCookie] = useCookies([]);
   let wishlistFromCookies = cookies.wishlist;
   const [wishlist, setWishlist] = useState(
-    (wishlistFromCookies.length > 0) ?
-      wishlistFromCookies : []);
+    (!wishlistFromCookies == null) ?
+      wishlistFromCookies : '');
 
   useEffect(() => {
 		let cookieData = JSON.stringify(wishlist);
