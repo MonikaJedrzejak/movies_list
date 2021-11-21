@@ -10,6 +10,7 @@ export default function SearchResults() {
 	const [totalResults, setTotalResults] = useState(1);
 	const [searchQuery, setSearchQuery] = useState("pooh");
 	const [currentPage, setCurrentPage] = useState(1);
+	const [wishlist, setWishlist] = useState('');
 
 	useEffect(() => {
 		getMovies(searchQuery, setMovie, setTotalResults);
@@ -46,7 +47,7 @@ export default function SearchResults() {
 			
 			<ul className="movie-card-container">
 				{pageList.length ? (
-					pageList.map((el, idx) => <li key={idx}><MovieCard movie={el}/></li>)
+					pageList.map((el, idx) => <li key={idx}><MovieCard movie={el} wishlist={wishlist} setWishlist={setWishlist}/></li>)
 				) : (
 					<p>No results </p>
 				)}
@@ -61,6 +62,7 @@ export default function SearchResults() {
           			nextLabel=">>"
 				/>
 			</div>
+			<p>{wishlist}</p>
 		</div>
 	);
 }
