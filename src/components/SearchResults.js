@@ -3,7 +3,8 @@ import SearchBar from "./SearchBar.js";
 import MovieCard from "./MovieCard.js";
 import { getMovies, getMoviesFromPage } from "../api/operations";
 import Pagination from "react-responsive-pagination";
-import { animateScroll } from 'react-scroll'
+import { animateScroll } from 'react-scroll';
+import { useCookies } from 'react-cookie';
 
 export default function SearchResults() {
 	const [movie, setMovie] = useState({});
@@ -11,6 +12,7 @@ export default function SearchResults() {
 	const [searchQuery, setSearchQuery] = useState("pooh");
 	const [currentPage, setCurrentPage] = useState(1);
 	const [wishlist, setWishlist] = useState('');
+	const [cookies, setCookie] = useCookies(['name']);
 
 	useEffect(() => {
 		getMovies(searchQuery, setMovie, setTotalResults);
@@ -40,6 +42,11 @@ export default function SearchResults() {
 	// 	 }
 	// 	return table
 	//   }
+	useEffect(() => {
+		console.log(wishlist);
+		let cookieData = JSON.stringify(wishlist);
+		setCookie('wishlist', cookieData);
+	},[wishlist, setCookie])
 
 	return (
 		<div className="container">
@@ -63,6 +70,7 @@ export default function SearchResults() {
 				/>
 			</div>
 			<p>{wishlist}</p>
+			<p>{cookies.wishlist}</p>
 		</div>
 	);
 }
