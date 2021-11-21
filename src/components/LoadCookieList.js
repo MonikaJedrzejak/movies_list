@@ -9,8 +9,7 @@ export default function LoadCookieList({wishlist, setWishlist}) {
 
 
     return (
-        <div>
-            <p> My wishlist:</p>
+        <div className="container">
             <ul className="movie-card-container">
 				{wishlistFromCookies.length ? (
 					wishlistFromCookies.map((el, idx) => <li key={idx}><WishListCard imdbID={el} wishlist={wishlist} setWishlist={setWishlist}/></li>)

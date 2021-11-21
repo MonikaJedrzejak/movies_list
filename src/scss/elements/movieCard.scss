@@ -44,10 +44,12 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	text-align: center;
 	@include tablet {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		text-align: center;
 	}
 	li {
 		margin: 0 auto;

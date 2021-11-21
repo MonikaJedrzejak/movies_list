@@ -9,7 +9,7 @@ import { animateScroll } from 'react-scroll';
 export default function SearchResults({wishlist, setWishlist}) {
 	const [movie, setMovie] = useState({});
 	const [totalResults, setTotalResults] = useState(1);
-	const [searchQuery, setSearchQuery] = useState("pooh");
+	const [searchQuery, setSearchQuery] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
 	
 	// const [cookies, setCookie] = useCookies([]);
@@ -55,7 +55,7 @@ export default function SearchResults({wishlist, setWishlist}) {
 				{pageList.length ? (
 					pageList.map((el, idx) => <li key={idx}><MovieCard movie={el} wishlist={wishlist} setWishlist={setWishlist}/></li>)
 				) : (
-					<p>No results </p>
+					<p>No results</p>
 				)}
 			</ul>
 			
