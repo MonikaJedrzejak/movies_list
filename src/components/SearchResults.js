@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar.js";
 import MovieCard from "./MovieCard.js";
 import { getMovies, getMoviesFromPage } from "../api/operations";
 import Pagination from "react-responsive-pagination";
+import { animateScroll } from 'react-scroll'
 
 export default function SearchResults() {
 	const [movie, setMovie] = useState({});
@@ -15,6 +16,10 @@ export default function SearchResults() {
 	}, [searchQuery]); 
   	useEffect(() => {
 		getMoviesFromPage(searchQuery, currentPage, setMovie);
+		animateScroll.scrollToTop({
+			duration: 1500,
+			delay: 50,
+			smooth: 'easeInOutQuint'});
 		// eslint-disable-next-line
 	}, [currentPage]);
 
