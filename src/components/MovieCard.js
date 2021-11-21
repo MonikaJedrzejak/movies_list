@@ -1,18 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { getMovieInfo } from "../api/operations";
+// import star from '../assets/star.svg';
+import starO from '../assets/starO.svg';
 
 export default function MovieCard({movie}) {
         const {Title, Year, imdbID, Type, Poster} = movie;
         const [movieInfo, setMovieInfo] = useState({});
-        getMovieInfo(imdbID, setMovieInfo);
+        useEffect(() => {
+		getMovieInfo(imdbID, setMovieInfo);
+        return () => {
+            setMovieInfo({});
+        }
+	}, [movie, imdbID, setMovieInfo]);
+        
 
     return (
-        <div>
-            <img src={Poster} alt={`Poster - ${Title}`}/>
-            <p>{Title}</p>
-            <p>{Year}</p>
-            <p>{Type}</p>
-            <p>{movieInfo.imdbRating}</p>
-        </div>
+            <div className="movie-card-box">
+            <div className="btn-add">
+            <img className="icon-star" src={starO} alt="star icon"></img>
+            </div>
+                <img className="movie-card-poster" src={Poster} alt={`Poster - ${Title}`}/>
+                <div className="movie-card-title-bottom">
+                    <h3 className="movie-card-title">{Title}</h3>
+                    <div className="movie-card-info">
+                        <p>{Type}</p>
+                        <p>{Year}</p>
+                        <p>{movieInfo.imdbRating}</p>
+                    </div>
+                </div>
+            </div>
     )
 }

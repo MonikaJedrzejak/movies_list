@@ -12,10 +12,10 @@ export default function SearchResults() {
 
 	useEffect(() => {
 		getMovies(searchQuery, setMovie, setTotalResults);
-	}, [searchQuery]);
-
+	}, [searchQuery]); 
   	useEffect(() => {
 		getMoviesFromPage(searchQuery, currentPage, setMovie);
+		// eslint-disable-next-line
 	}, [currentPage]);
 
 	let pageList = [];
@@ -38,20 +38,22 @@ export default function SearchResults() {
 	return (
 		<div className="container">
 			<SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-			<ul>
+			
+			<ul className="movie-card-container">
 				{pageList.length ? (
-					pageList.map((el) => <li key={el.imdbID}><MovieCard movie={el}/></li>)
+					pageList.map((el, idx) => <li key={idx}><MovieCard movie={el}/></li>)
 				) : (
 					<p>No results </p>
 				)}
 			</ul>
+			
 			<div className="results-pagination" >
 				<Pagination
 					current={currentPage}
 					total={pages}
 					onPageChange={setCurrentPage}
-          previousLabel="<<"
-          nextLabel=">>"
+          			previousLabel="<<"
+          			nextLabel=">>"
 				/>
 			</div>
 		</div>

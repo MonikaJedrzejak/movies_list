@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/movieIcon.svg'
+import logo from '../assets/movieIcon.svg';
 
 export default function Menu() {
     return (

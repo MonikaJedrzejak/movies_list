@@ -1,0 +1,60 @@
+.movie-card-box {
+	width: 300px;
+	margin: 2rem;
+	position: relative;
+	border-radius: 10px;
+	box-shadow: 2px 2px 4px #000000;
+	.movie-card-poster {
+		border-radius: 10px 10px 0 0;
+		border-bottom: 4px solid $accent-color;
+		min-height: 450px;
+		max-width: 300px;
+	}
+}
+
+.movie-card-title-bottom {
+	background-color: $dark-color;
+	width: 100%;
+	border-radius: 0 0 10px 10px;
+}
+.movie-card-title {
+	text-align: center;
+	border-bottom: 2px solid $main-color;
+	padding: 1rem;
+}
+.movie-card-info {
+	display: flex;
+	justify-content: space-around;
+	padding: 1rem;
+}
+
+.btn-add {
+	width: 42px;
+	height: 42px;
+	border-radius: 10px;
+	background-color: $dark-color;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99;
+	position: absolute;
+}
+
+.movie-card-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@include tablet {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	li {
+		margin: 0 auto;
+	}
+}
+
+.icon-star:hover {
+	filter: brightness(0) saturate(100%) invert(76%) sepia(73%) saturate(351%)
+		hue-rotate(343deg) brightness(102%) contrast(102%);
+}
