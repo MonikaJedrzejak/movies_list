@@ -1,6 +1,6 @@
 # Movie wishlist
 
-> Simple apllication to search movies and create own wishlist of movies
+> Simple apllication to search movies and create own wishlist of movies (based on cookies)
 > Live demo [_here_](https://mj-movie-wishlist.netlify.app).
 
 ## Table of Contents
