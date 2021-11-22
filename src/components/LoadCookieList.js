@@ -32,7 +32,7 @@ export default function LoadCookieList({wishlist, setWishlist}) {
           			nextLabel=">>"
 				/>
 			</div>
-            <button className="btn" onClick={deleteMyWishlist}>Delete all items in my wishlist</button>
+            <button className="btn btn-delete" onClick={deleteMyWishlist}>Delete all items in my wishlist</button>
         </div>
     )
 }
