@@ -36,22 +36,24 @@ export default function MoveDetails({ imdbID, wishlist, setWishlist }) {
 		imdbRating,
 	} = movieInfo;
 	return (
-		<Popup 
+		<Popup
 			trigger={<button className="btn-no-border"> More Info </button>}
 			modal
 			nested>
 			{(close) => (
 				<div className="modal details">
 					<div className="details-header">
-                        <div className="btn-details-add" onClick={toggleWishList}>
-						{wishlist.includes(imdbID) ? (
-							<img className="icon-star" src={star} alt="star icon"></img>
-						) : (
-							<img className="icon-star" src={starO} alt="star icon"></img>
-						)}
+						<div className="btn-details-add" onClick={toggleWishList}>
+							{wishlist.includes(imdbID) ? (
+								<img className="icon-star" src={star} alt="star icon"></img>
+							) : (
+								<img className="icon-star" src={starO} alt="star icon"></img>
+							)}
+						</div>
+						<div className="details-title">
+							<h3>{Title}</h3>
+						</div>
 					</div>
-                    <div className="details-title"><h3>{Title}</h3></div>
-                    </div>
 					<div className="content">
 						<div className="details-info">
 							<div className="details-info-row">
@@ -92,7 +94,6 @@ export default function MoveDetails({ imdbID, wishlist, setWishlist }) {
 						<p className="details-line">{Plot}</p>
 					</div>
 					<div className="actions">
-                    
 						<button
 							className="btn"
 							onClick={() => {

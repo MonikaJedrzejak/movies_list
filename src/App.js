@@ -1,6 +1,6 @@
 import "./scss/main.scss";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home.js";
 import MyWishList from "./components/MyWishList";
 import NotFound from "./components/NotFound";
@@ -10,7 +10,7 @@ function App() {
 	const [cookies, setCookie] = useCookies();
 	let wishlistFromCookies = cookies.wishlist;
 	// console.log(wishlistFromCookies);
-	
+
 	const [wishlist, setWishlist] = useState(
 		wishlistFromCookies ? wishlistFromCookies : ""
 	);
@@ -34,7 +34,7 @@ function App() {
 							<MyWishList wishlist={wishlist} setWishlist={setWishlist} />
 						}
 					/>
-					<Route path='*' element={<NotFound/>} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</Router>
 		</>

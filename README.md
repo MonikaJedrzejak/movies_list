@@ -32,13 +32,16 @@ List the ready features here:
 - Search movies by title
 - Add/Delete movie from wishlist
 - Delete all items from wishlist
+- Popup with more information about movie
 
 ## Screenshots
 
-![Example screenshot](./img/screenshot.png)
-
-<!-- If you have screenshots you'd like to share, include them here. -->
+![Searching](./img/1.PNG)
+![Pagination](./img/2.PNG)
+![Movie Info](./img/5.PNG)
+![Delete wishlist](./img/7.PNG)
+![Mobile](./img/3.PNG)
 
 ## Project Status
 
-Project is: _in_progress_
+Project is: _complete_

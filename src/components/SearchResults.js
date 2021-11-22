@@ -3,24 +3,24 @@ import SearchBar from "./SearchBar.js";
 import MovieCard from "./MovieCard.js";
 import { getMovies, getMoviesFromPage } from "../api/operations";
 import Pagination from "react-responsive-pagination";
-import { animateScroll } from 'react-scroll';
+import { animateScroll } from "react-scroll";
 
-export default function SearchResults({wishlist, setWishlist}) {
+export default function SearchResults({ wishlist, setWishlist }) {
 	const [movie, setMovie] = useState({});
 	const [totalResults, setTotalResults] = useState(1);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
-	
 
 	useEffect(() => {
 		getMovies(searchQuery, setMovie, setTotalResults);
 	}, [searchQuery]);
-  	useEffect(() => {
+	useEffect(() => {
 		getMoviesFromPage(searchQuery, currentPage, setMovie);
 		animateScroll.scrollToTop({
 			duration: 1500,
 			delay: 50,
-			smooth: 'easeInOutQuint'});
+			smooth: "easeInOutQuint",
+		});
 		// eslint-disable-next-line
 	}, [currentPage]);
 
@@ -46,22 +46,30 @@ export default function SearchResults({wishlist, setWishlist}) {
 	return (
 		<div className="container">
 			<SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-			
+
 			<ul className="movie-card-container">
 				{pageList.length ? (
-					pageList.map((el, idx) => <li key={idx}><MovieCard movie={el} wishlist={wishlist} setWishlist={setWishlist}/></li>)
+					pageList.map((el, idx) => (
+						<li key={idx}>
+							<MovieCard
+								movie={el}
+								wishlist={wishlist}
+								setWishlist={setWishlist}
+							/>
+						</li>
+					))
 				) : (
 					<p>No results</p>
 				)}
 			</ul>
-			
-			<div className="results-pagination" >
+
+			<div className="results-pagination">
 				<Pagination
 					current={currentPage}
 					total={pages}
 					onPageChange={setCurrentPage}
-          			previousLabel="<<"
-          			nextLabel=">>"
+					previousLabel="<<"
+					nextLabel=">>"
 				/>
 			</div>
 		</div>
