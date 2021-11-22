@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { getMovieInfo } from "../api/operations";
 import star from '../assets/star.svg';
 import starO from '../assets/starO.svg';
+import MovieDetails from "./MovieDetails";
 
 export default function MovieCard({movie, wishlist, setWishlist}) {
         const {Title, Year, imdbID, Type, Poster} = movie;
@@ -37,6 +38,9 @@ export default function MovieCard({movie, wishlist, setWishlist}) {
                         <p>{Type}</p>
                         <p>{Year}</p>
                         <p>{movieInfo.imdbRating}</p>
+                    </div>
+                    <div>
+                    <MovieDetails imdbID={imdbID} wishlist={wishlist} setWishlist={setWishlist}/>
                     </div>
                 </div>
             </div>

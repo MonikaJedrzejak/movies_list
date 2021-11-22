@@ -4,6 +4,7 @@
 @import "elements/searchbar";
 @import "elements/pagination";
 @import "elements/movieCard";
+@import "elements/movieDetails";
 
 html {
 	font-size: 62.5%;
@@ -35,3 +36,16 @@ body {
 	border: 0;
 }
 
+.btn {
+	border: 1px solid $font-color;
+	background-color: $background-color;
+	color: $font-color;
+	padding: 1rem;
+    margin: 0 auto;
+    display: flex;
+    &:hover {
+        color: $accent-color;
+        border: 1px solid $accent-color;
+        font-weight: bold;
+    }
+}

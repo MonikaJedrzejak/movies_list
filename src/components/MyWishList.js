@@ -3,8 +3,6 @@ import LoadCookieList from './LoadCookieList.js';
 import Menu from "./Menu.js";
 
 
-
-
 export default function MyWishList({wishlist, setWishlist}) {
     
 
