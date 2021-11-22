@@ -4,7 +4,6 @@ import MovieCard from "./MovieCard.js";
 import { getMovies, getMoviesFromPage } from "../api/operations";
 import Pagination from "react-responsive-pagination";
 import { animateScroll } from 'react-scroll';
-// import { useCookies } from 'react-cookie';
 
 export default function SearchResults({wishlist, setWishlist}) {
 	const [movie, setMovie] = useState({});
@@ -12,7 +11,6 @@ export default function SearchResults({wishlist, setWishlist}) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
 	
-	// const [cookies, setCookie] = useCookies([]);
 
 	useEffect(() => {
 		getMovies(searchQuery, setMovie, setTotalResults);
@@ -30,8 +28,6 @@ export default function SearchResults({wishlist, setWishlist}) {
 	let pagesNum = [];
 	pageList = movie;
 	pagesNum = totalResults;
-	// console.log(pageList);
-	// console.log(pagesNum);
 
 	const pages = Math.ceil(pagesNum / 10);
 

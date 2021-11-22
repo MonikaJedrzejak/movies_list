@@ -3,6 +3,7 @@ import { getMovieInfo } from "../api/operations";
 import star from '../assets/star.svg';
 import starO from '../assets/starO.svg';
 
+
 export default function WishListCard({imdbID, wishlist, setWishlist}) {
         const [movieInfo, setMovieInfo] = useState({});
 

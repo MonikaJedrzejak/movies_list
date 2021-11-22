@@ -8,7 +8,7 @@ import { useCookies } from "react-cookie";
 function App() {
 	const [cookies, setCookie] = useCookies();
 	let wishlistFromCookies = cookies.wishlist;
-	console.log(wishlistFromCookies);
+	// console.log(wishlistFromCookies);
 	
 	const [wishlist, setWishlist] = useState(
 		wishlistFromCookies ? wishlistFromCookies : ""
