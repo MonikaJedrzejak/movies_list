@@ -24,6 +24,7 @@
 
 - React
 - SASS
+- npm : React-router, React-cookies, React-responsive-pagination, React-Scroll, Reactjs-popup
 
 ## Features
 
