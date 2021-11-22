@@ -9,7 +9,10 @@ export default function LoadCookieList({wishlist, setWishlist}) {
     let wishlistFromCookies = cookies.wishlist;
     const [currentPage, setCurrentPage] = useState(1);
     const pages = Math.ceil(wishlistFromCookies.length / 10);
-    console.log(currentPage);
+
+    const deleteMyWishlist = () => {
+        setWishlist("");
+    }
 
     return (
         <div className="container">
@@ -29,6 +32,7 @@ export default function LoadCookieList({wishlist, setWishlist}) {
           			nextLabel=">>"
 				/>
 			</div>
+            <button className="btn" onClick={deleteMyWishlist}>Delete all items in my wishlist</button>
         </div>
     )
 }
